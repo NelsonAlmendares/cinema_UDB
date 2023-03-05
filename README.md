@@ -7,7 +7,7 @@ Una aplicación desarrollada en el entorno de consola con el framework .NET
 - [@NelsonAlmendares](https://github.com/NelsonAlmendares) Nelson José Almendares Ruiz 🐧
 
 ## Tech Stack
-**Lenguage:** C# (console) .NET Framework
+**Lenguage:** C# (console) .NET Framework 4.7.2
 
 **Server:** Mysql
 
