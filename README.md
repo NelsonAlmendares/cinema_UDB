@@ -2,12 +2,6 @@
 
 Una aplicación desarrollada en el entorno de consola con el framework .NET 
 
-## Tech Stack
-
-**Client:** React, Redux, TailwindCSS
-
-**Server:** Node, Express
-
 ## Authors
 
 - [@NelsonAlmendares](https://github.com/NelsonAlmendares) Nelson José Almendares Ruiz 🐧
