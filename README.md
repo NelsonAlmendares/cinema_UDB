@@ -1,6 +1,6 @@
 # cinema UDB
 
-A brief description of what this project does and who it's for
+Una aplicación desarrollada en el entorno de consola con el framework .NET 
 
 ## Tech Stack
 
