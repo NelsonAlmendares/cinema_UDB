@@ -4,35 +4,63 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
-namespace proyecto_ciclo_entrega_2
-{
+    /*
+    * 
+    * Tabulación de 3 espacios para todo el contenido                  *
+    * Los títulos deben de estar centrados                             *
+    * Color de letra para notificaciones (VERDE)                       *
+    * Color de alarta para errores y excepciones (ROJO)                *
+    * Se usará UPPER CAMEL CASE para el nombramiento de las variables  *
+    * Se usará SNAKE CASE para el nombreamiento de funciones           *
+    * 
+    */
+
+namespace proyecto_ciclo_entrega_2 {
+            
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            /*
-             * 
-             * Tabulación de 3 espacios para todo el contenido                  *
-             * Los títulos deben de estar centrados                             *
-             * Color de letra para notificaciones (VERDE)                       *
-             * Color de alarta para errores y excepciones (ROJO)                *
-             * Se usará UPPER CAMEL CASE para el nombramiento de las variables  *
-             * Se usará SNAKE CASE para el nombreamiento de funciones           *
-             * 
-             */
-
-            // Creamos la nueva ventana y la personalizamos
-            Console.WindowHeight = 40;
-            Console.WindowWidth = 170;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.Clear();
-
             // Usamos la instrucción try con 1 catch para conotrlar las excepciones dentro de la ejecución del proyecto
             try
             {
-                // Título de la nueva ventana
+                // Propiedades de la nueva ventana
+                Console.WindowHeight = 40;
+                Console.WindowWidth = 170;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.Clear();
+                Console.Title = "cinema UDB";
+
+                // Cursor invisible.
+                Console.CursorVisible = false;
+
+                // Creamos la nueva ventana y la personalizamos
+                int barra = 99;
+                int porcentaje = 0;
+                int numero_porcentaje = 35;
+
+                Console.SetCursorPosition(150, 35);
+
+                for (int i = 0; i < barra; i++)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("█"); // Muestra ASCII 219 Dec y DB en Hex.
+                    porcentaje++; // Incrementa valor.
+                    numero_porcentaje++;
+                    Propiedades.PrintAverage(numero_porcentaje, porcentaje);
+                    Thread.Sleep(80); // 100 ms o 0.1 segundos.
+                }
+
+                // Restablecemos los valores luego de la pantalla de carga
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();
+                // Cursor invisible.
+                Console.CursorVisible = true;
+
+                // Título reasignado luego del splash screen
                 Console.Title = "cinema UDB";
                 Console.Write("\n\t\t\t\t\t\t\t\t\t Proyecto - PrimeCinema");
 
@@ -42,22 +70,22 @@ namespace proyecto_ciclo_entrega_2
                 do
                 {
                     // Declaración de las variables para uso del sistema
-                    string usuario, password;
+                    string usuario;
                     // Declaración de variable para la ruta del archivo de texto creado
                     var fileUser = "usuarios.txt";
                     var fileNameRegistros = "registros.txt";
                     var fileDocumento = "documento.txt";
-                    // Solicitamos el nombre del usuario
 
-
-
+                    // Solicitamos el nombre del 
                     Console.Write("\n\n\t\t\t Bienvenido, ingresa el nombre de su usuario : ");
                     usuario = Console.ReadLine().ToString();
 
                     // Evalluamos si el usuario está registrado:
                     if (File.ReadAllText(fileNameRegistros) == usuario) {
-                        Console.Write("\n\t\t\t Ingrese su contraseña: ");
-                        password = Console.ReadLine().ToString();
+
+                        Console.Write("\n\n\t\t\t Ingresa la contraseña de su usuario : ");
+                        // Llmamos el método con el cual ocultamos la contraseña
+                        Propiedades.OcultarContra();
                     }
                     else {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -74,7 +102,7 @@ namespace proyecto_ciclo_entrega_2
                         Console.Write("\n\t\t\t\t (3). Ayuda y soporte ");
                         Console.Write("\n");
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write("\n\t\t\t\t\t Digite el número de lá opcción que desea... ");
+                        Console.Write("\n\t\t\t\t\t Digite el número de la opcción que desea... ");
                         Console.ForegroundColor = ConsoleColor.Black;
                         accion_usuario1 = Console.ReadLine();
 
@@ -83,7 +111,6 @@ namespace proyecto_ciclo_entrega_2
                             case "1":
                                 Console.Clear();
                                 Console.Write("\n\t\t\t\t\t\t\t\t Registro de usuarios - PrimeCinema");
-
                                 // Variables para el registro del nuevo usuario
                                 string user, passwordUser, nombre, residencia, correo;
                                 int documento, telefono;
@@ -152,6 +179,7 @@ namespace proyecto_ciclo_entrega_2
                                 Console.Write("\n");
                                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                                 Console.Write("\n\t\t\t --> Digite su nueva contraseña: ");
+                                Propiedades.OcultarContra();
                                 Console.ForegroundColor = ConsoleColor.Black;
                                 passwordUser = Console.ReadLine().ToString();
 
@@ -169,6 +197,7 @@ namespace proyecto_ciclo_entrega_2
                                 break;
                             case "2":
                                 /* 
+                                 * 
                                  * Sin niguna operación para que el programa salte 
                                  * al while que aún se está corriendo y poder realizar otra operación
                                  * 
@@ -194,7 +223,6 @@ namespace proyecto_ciclo_entrega_2
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.Write("\n\t\t\t consultas_primeCinema@gmail.com");
                                 Console.ForegroundColor = ConsoleColor.Green;
-
                                 break;
                             default:
                                 Console.ForegroundColor = ConsoleColor.Red;
