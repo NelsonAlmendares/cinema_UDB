@@ -51,7 +51,7 @@ namespace proyecto_ciclo_entrega_2 {
                     porcentaje++; // Incrementa valor.
                     numero_porcentaje++;
                     Propiedades.PrintAverage(numero_porcentaje, porcentaje);
-                    Thread.Sleep(80); // 100 ms o 0.1 segundos.
+                    Thread.Sleep(80); // 80 ms o 0.8 segundos.
                 }
 
                 // Restablecemos los valores luego de la pantalla de carga
