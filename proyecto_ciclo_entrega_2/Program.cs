@@ -76,11 +76,11 @@ namespace proyecto_ciclo_entrega_2 {
                     var fileNameRegistros = "registros.txt";
                     var fileDocumento = "documento.txt";
 
-                    // Solicitamos el nombre del 
+                    // Solicitamos el nombre del usuario
                     Console.Write("\n\n\t\t\t Bienvenido, ingresa el nombre de su usuario : ");
                     usuario = Console.ReadLine().ToString();
 
-                    // Evalluamos si el usuario está registrado:
+                    // Evaluamos si el usuario está registrado:
                     if (File.ReadAllText(fileNameRegistros) == usuario) {
 
                         Console.Write("\n\n\t\t\t Ingresa la contraseña de su usuario : ");
