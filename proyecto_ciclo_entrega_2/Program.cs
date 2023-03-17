@@ -86,6 +86,7 @@ namespace proyecto_ciclo_entrega_2 {
                         Console.Write("\n\n\t\t\t Ingresa la contraseña de su usuario : ");
                         // Llmamos el método con el cual ocultamos la contraseña
                         Propiedades.OcultarContra();
+                        Console.Write();
                     }
                     else {
                         Console.ForegroundColor = ConsoleColor.Red;
