@@ -5,6 +5,16 @@ C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_
 C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.csproj.CoreCompileInputs.cache
 C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.exe
 C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.pdb
+<<<<<<< HEAD
 C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_entrega_2\bin\Debug\Class_List.dll
 C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_entrega_2\bin\Debug\Class_List.pdb
 C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.csproj.CopyComplete
+=======
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\bin\Debug\proyecto_ciclo_entrega_2.exe.config
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\bin\Debug\proyecto_ciclo_entrega_2.exe
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\bin\Debug\proyecto_ciclo_entrega_2.pdb
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.csproj.AssemblyReference.cache
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.csproj.CoreCompileInputs.cache
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.exe
+C:\Users\nelso\OneDrive\Escritorio\clonaciones\cinema_UDB\proyecto_ciclo_entrega_2\obj\Debug\proyecto_ciclo_entrega_2.pdb
+>>>>>>> 5f21c9fb0d45a18f4c5a8a4d14d4c40c54002adf

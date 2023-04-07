@@ -76,9 +76,10 @@ namespace proyecto_2 {
                     var fileEmailRegister = "correo.txt";
                     var filePhoneRegister = "telefono.txt";
 
-                    // Solicitamos el nombre del 
+                    // Solicitamos el nombre del usuario
                     Console.Write("\n\n\t\t\t Bienvenido, ingresa el nombre de su usuario : ");
                     usuario = Console.ReadLine().ToString();
+
                     // Evalluamos si el usuario está registrado:
                     if (File.ReadAllText(fileNameRegister) == usuario) {
 
