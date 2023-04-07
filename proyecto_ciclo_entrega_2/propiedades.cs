@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace proyecto_ciclo_entrega_2
+/*
+ * Clase asiganada para la creación de método y funciones dentro del Main 
+ */
+
+namespace Functions
 {
-    class Propiedades : Program
+    public class Propiedades
     {
         // Función para ocultar una contraseña por medio de la consola
-        public static void OcultarContra()
+        public void OcultarContra()
         {
             // Creamos una lista para almacenar la clave
             List<string> lstClave = new List<string>();
@@ -45,9 +49,9 @@ namespace proyecto_ciclo_entrega_2
         }
 
         // Funcion para cargar el porcentaje y la barra
-        public static void PrintAverage(int numero_porcentaje, int porcentaje) {
+        public void PrintAverage(int numero_porcentaje, int porcentaje) {
             Console.SetCursorPosition(150, 35);
-            Console.Write("Cargado: " + (porcentaje).ToString() + " %");
+            Console.Write("Cargando: " + (porcentaje).ToString() + " %");
             Console.SetCursorPosition(numero_porcentaje, 30);
         }
     }

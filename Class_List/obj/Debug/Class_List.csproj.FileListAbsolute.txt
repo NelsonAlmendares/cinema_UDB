@@ -1,0 +1,6 @@
+C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\Class_List\bin\Debug\Class_List.dll
+C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\Class_List\bin\Debug\Class_List.pdb
+C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\Class_List\obj\Debug\Class_List.csproj.CoreCompileInputs.cache
+C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\Class_List\obj\Debug\Class_List.dll
+C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\Class_List\obj\Debug\Class_List.pdb
+C:\Users\nelso\OneDrive\Escritorio\Visual Studio\entrega2\cinema\Class_List\obj\Debug\Class_List.csproj.AssemblyReference.cache

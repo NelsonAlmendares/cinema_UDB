@@ -5,27 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
-
-    /*
-    * 
-    * Tabulación de 3 espacios para todo el contenido                  *
-    * Los títulos deben de estar centrados                             *
-    * Color de letra para notificaciones (VERDE)                       *
-    * Color de alarta para errores y excepciones (ROJO)                *
-    * Se usará UPPER CAMEL CASE para el nombramiento de las variables  *
-    * Se usará SNAKE CASE para el nombreamiento de funciones           *
-    * 
-    */
-
-namespace proyecto_ciclo_entrega_2 {
-            
-    class Program
-    {
-        public static void Main(string[] args)
-        {
+using Class_List;
+/*
+* 
+* Tabulación de 3 espacios para todo el contenido                  *
+* Los títulos deben de estar centrados                             *
+* Color de letra para notificaciones (VERDE)                       *
+* Color de alarta para errores y excepciones (ROJO)                *
+* Se usará UPPER CAMEL CASE para el nombramiento de las variables  *
+* Se usará SNAKE CASE para el nombreamiento de funciones           *
+* 
+*/
+namespace proyecto_2 {
+    class Program {
+        public static void Main(string[] args) {
             // Usamos la instrucción try con 1 catch para conotrlar las excepciones dentro de la ejecución del proyecto
-            try
-            {
+            try {
+                // Instanciamos el acceso a las fucniones y procedimientos
+                Functions.Propiedades function = new Functions.Propiedades();
+                Developers Dev_Info = new Developers();
+                Switch_Case_3.Case_3 Case = new Switch_Case_3.Case_3();
+
                 // Propiedades de la nueva ventana
                 Console.WindowHeight = 40;
                 Console.WindowWidth = 170;
@@ -37,21 +37,18 @@ namespace proyecto_ciclo_entrega_2 {
                 // Cursor invisible.
                 Console.CursorVisible = false;
 
-                // Creamos la nueva ventana y la personalizamos
-                int barra = 99;
+                // Creamos la barra
+                int barra = 100;
                 int porcentaje = 0;
                 int numero_porcentaje = 35;
-
                 Console.SetCursorPosition(150, 35);
-
-                for (int i = 0; i < barra; i++)
-                {
+                for (int i = 0; i < barra; i++) {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.Write("█"); // Muestra ASCII 219 Dec y DB en Hex.
                     porcentaje++; // Incrementa valor.
                     numero_porcentaje++;
-                    Propiedades.PrintAverage(numero_porcentaje, porcentaje);
-                    Thread.Sleep(80); // 80 ms o 0.8 segundos.
+                    function.PrintAverage(numero_porcentaje, porcentaje);
+                    Thread.Sleep(70); // 70 ms o 0.7 segundos.
                 }
 
                 // Restablecemos los valores luego de la pantalla de carga
@@ -66,26 +63,28 @@ namespace proyecto_ciclo_entrega_2 {
 
                 // Variable para evaluar la accion a realizar por el DO
                 string accion;
+
                 // Usamos la secuencia DO-WHILE para poder repetir la ejecución del programa y evitar la compilación repetitiva
-                do
-                {
+                do {    
                     // Declaración de las variables para uso del sistema
                     string usuario;
                     // Declaración de variable para la ruta del archivo de texto creado
                     var fileUser = "usuarios.txt";
-                    var fileNameRegistros = "registros.txt";
-                    var fileDocumento = "documento.txt";
+                    var fileNameRegister = "registros.txt";
+                    var fileDocumentRegister = "documento.txt";
+                    var filePasswordRegister = "password.txt";
+                    var fileEmailRegister = "correo.txt";
+                    var filePhoneRegister = "telefono.txt";
 
                     // Solicitamos el nombre del 
                     Console.Write("\n\n\t\t\t Bienvenido, ingresa el nombre de su usuario : ");
                     usuario = Console.ReadLine().ToString();
-
                     // Evalluamos si el usuario está registrado:
-                    if (File.ReadAllText(fileNameRegistros) == usuario) {
+                    if (File.ReadAllText(fileNameRegister) == usuario) {
 
                         Console.Write("\n\n\t\t\t Ingresa la contraseña de su usuario : ");
                         // Llmamos el método con el cual ocultamos la contraseña
-                        Propiedades.OcultarContra();
+                        function.OcultarContra();
                     }
                     else {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -131,8 +130,7 @@ namespace proyecto_ciclo_entrega_2 {
                                         evaluador_usuario = false;
                                     } else { evaluador_usuario = true; }
                                 } while (evaluador_usuario == false);
-                                // Ingresamos el nombre al archivo:
-                                // File.WriteAllText(fileUser, usuario);
+
                                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                                 Console.Write("\n\t\t\t --> Ingresa tu nombre completo: ");
                                 Console.ForegroundColor = ConsoleColor.Black;
@@ -144,7 +142,7 @@ namespace proyecto_ciclo_entrega_2 {
                                     Console.Write("\n\t\t\t --> Ingresa tu número de Identificación: ");
                                     Console.ForegroundColor = ConsoleColor.Black;
                                     documento = int.Parse(Console.ReadLine());
-                                    if (File.ReadAllText(fileDocumento) == documento.ToString())
+                                    if (File.ReadAllText(fileDocumentRegister) == documento.ToString())
                                     {
                                         Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("\n\t\t\t El documento ingresado se encuentra ya registrado! ");
@@ -179,8 +177,8 @@ namespace proyecto_ciclo_entrega_2 {
                                 Console.Write("\n");
                                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                                 Console.Write("\n\t\t\t --> Digite su nueva contraseña: ");
-                                Propiedades.OcultarContra();
                                 Console.ForegroundColor = ConsoleColor.Black;
+                                function.OcultarContra();
                                 passwordUser = Console.ReadLine().ToString();
 
                                 Console.Write("\n\t\t\t El usuario se está ingresando al sistema... ");
@@ -194,35 +192,47 @@ namespace proyecto_ciclo_entrega_2 {
                                 Console.Write("\n\t\t\t Usuario ingresado satisfactoriamente !");
                                 Console.ForegroundColor = ConsoleColor.Black;
 
+                                // Creamos espacios para poder leer los textos que se ingresen
+                                StringBuilder us = new StringBuilder("Added :");
+                                StringBuilder nm = new StringBuilder("Added :");
+                                StringBuilder dc = new StringBuilder("Added :");
+                                StringBuilder pwd = new StringBuilder("Added :");
+                                StringBuilder em = new StringBuilder("Added: ");
+                                StringBuilder tl = new StringBuilder("Added: ");
+
+                                us.AppendLine(File.ReadAllText(fileUser));
+                                nm.AppendLine(File.ReadAllText(fileNameRegister));
+                                dc.AppendLine(File.ReadAllText(fileDocumentRegister));
+                                pwd.AppendLine(File.ReadAllText(filePasswordRegister));
+                                em.AppendLine(File.ReadAllText(fileEmailRegister));
+                                tl.AppendLine(File.ReadAllText(filePhoneRegister));
+
+                                us.AppendLine("new: " + user);
+                                nm.AppendLine("new: " + nombre);
+                                dc.AppendLine("new: " + documento);
+                                pwd.AppendLine("new: " + passwordUser);
+                                em.AppendLine("new: " + correo);
+                                tl.AppendLine("new:" + telefono);
+
+                                // Ingresamos el nombre al archivo:
+                                File.WriteAllText(fileUser, us.ToString());
+                                File.WriteAllText(fileNameRegister, nm.ToString());
+                                File.WriteAllText(fileDocumentRegister, dc.ToString());
+                                File.WriteAllText(filePasswordRegister, pwd.ToString());
+                                File.WriteAllText(fileEmailRegister, em.ToString());
+                                File.WriteAllText(filePhoneRegister, tl.ToString());
                                 break;
                             case "2":
-                                /* 
-                                 * 
+                                /*  
                                  * Sin niguna operación para que el programa salte 
                                  * al while que aún se está corriendo y poder realizar otra operación
-                                 * 
                                  */
                                 break;
                             case "3":
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.Clear();
-
-                                Console.Write("\n");
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Console.Write("\n\t\t\t\t\t\t\t\t Soporte y contácto - PrimeCinema");
-                                Console.Write("\n\t\t _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.Write("\n");
-                                Console.Write("\n\t\t\t Para recibir soporte o reportar errores puedes escribirnos al correo: ");
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Console.Write("\n\t\t\t soporte_primeCinema@gmail.com");
-                                Console.Write("\n");
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.Write("\n\t\t\t Para consultarnos o dudas puedes escribirnos al correo: ");
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Console.Write("\n\t\t\t consultas_primeCinema@gmail.com");
-                                Console.ForegroundColor = ConsoleColor.Green;
+                                Case.Switch_Case_3();
                                 break;
                             default:
                                 Console.ForegroundColor = ConsoleColor.Red;
@@ -243,34 +253,24 @@ namespace proyecto_ciclo_entrega_2 {
                     Console.Write("\n\t\t\t\t\t\t\t\t\t Proyecto - PrimeCinema");
                     Console.Write("\n");
                 } while (accion == "SI" || accion == "Si" || accion == "si");
+
+                // Pestaña para mostrar los colaboradores
+                Dev_Info.MostrarInformacion();
+
+                // Mensaje de finalización del programa
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.BackgroundColor = ConsoleColor.White;
+
+                Console.Write("\n");
+                Console.Write("\n\t\t --> Fin de la ejecución del programa....");
+                Console.Write("\n\t\t --> Pulse cualquier tecla....");
+                // Esperamos una respuesta del usuario
+                Console.ReadKey();
             }
             catch (Exception ex)
             {
                 Console.Write("\n\t\t\t " + ex.Message);
             }
-
-            // Pestaña para mostrar los colaboradores
-            Console.Write("\n\n\n\n\n\n");
-            Console.Write("\n\t\t _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
-            Console.Write("\n\n\t\t\t\t\t\t\t\t Este programa fue desarrollado por: ");
-            Console.Write("\n");
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Write("\n\t\t\t\t\t\t\t\t (1).  Nelson José Almendares Ruiz ");
-            Console.Write("\n\t\t\t\t\t\t\t\t (2).  Diego Alexander López Morataya ");
-            Console.Write("\n\t\t\t\t\t\t\t\t (3).  Emanuel Edgardo Luna Villanueva ");
-            Console.Write("\n\t\t\t\t\t\t\t\t (4).  David Alejandro Rodríguez Ferrufino ");
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write("\n\t\t _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
-
-            // Mensaje de finalización del programa
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
-
-            Console.Write("\n");
-            Console.Write("\n\t\t --> Fin de la ejecución del programa....");
-            Console.Write("\n\t\t --> Pulse cualquier tecla....");
-            // Esperamos una respuesta del usuario
-            Console.ReadKey();
         }
     }
 }
